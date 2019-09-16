@@ -6,14 +6,6 @@ from application.api.resources.dataclassifier.service.data_classifier_service im
 from application.api.resources.dataclassifier.dto.result_classifier import ResultClassifier
 
 namespace = api.namespace('sortdata', description='Operation related to data classification')
-# result_post = api.model('ClassifierResult Post', {
-#     'bancoDadosRanking': fields.Float(required=True, description='Email'),
-#     'programacaoOrientadaObjetoRanking': fields.Float(required=True, description='Email'),
-#     'linguagemMarcacaoRanking': fields.Float(required=True, description='Email'),
-#     'testeSoftwareRanking': fields.Float(required=True, description='Email'),
-#     'linguagemScriptRanking': fields.Float(required=True, description='Email')
-# })
-
 result_get = api.model('ClassifierResult Get', {
     'bancoDadosRanking': fields.Float,
     'programacaoOrientadaObjetoRanking': fields.Float,
@@ -32,10 +24,7 @@ class DataClassifierResource(Resource):
 
     @api.marshal_with(result_get)
     def get(self):
-
         content = flask.request.args.get("content")
-
-        print("Content = ", content)
 
         sliceKeyForSegregation = "#-?_keySlice?_-#"
         textArray = content.split(sliceKeyForSegregation)
@@ -46,7 +35,7 @@ class DataClassifierResource(Resource):
 
         dataframe = DataClassifierService.rateContent(content_cleaned)
 
-        print("Dataframe: ", dataframe)
+        # print("Dataframe: ", dataframe)
 
         bdi = "banco de dados i"
         poo = "programacao orientada a objeto"
@@ -64,3 +53,4 @@ class DataClassifierResource(Resource):
         print("Maximum values: ", df)
 
         return ResultClassifier(punct_bd, punct_poo, punct_lm, 0, 0)
+
