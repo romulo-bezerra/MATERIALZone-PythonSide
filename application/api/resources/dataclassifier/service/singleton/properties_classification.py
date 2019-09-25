@@ -11,7 +11,7 @@ class PropertiesClassification:
     train = pd.read_csv(__workDir + r'/dataset-processed.csv')
 
     # inserindo rotulos
-    label_cols = ['programacao orientada a objeto', 'linguagem de marcacao', 'banco de dados i']
+    label_cols = ['programacao orientada a objeto', 'linguagem de marcacao', 'banco de dados', 'linguagem de script']
     train['none'] = 1-train[label_cols].max(axis=1)
 
     # eliminando vazios

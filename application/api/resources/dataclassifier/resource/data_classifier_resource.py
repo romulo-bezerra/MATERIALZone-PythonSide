@@ -37,20 +37,20 @@ class DataClassifierResource(Resource):
 
         # print("Dataframe: ", dataframe)
 
-        bdi = "banco de dados i"
+        bd = "banco de dados"
         poo = "programacao orientada a objeto"
         lm = "linguagem de marcacao"
+        ls = "linguagem de script"
         # ts = "teste de software"
-        # ls = "linguagem de script"
 
         df = dataframe.max()
-        punct_bd = df[bdi]
+        punct_bd = df[bd]
         punct_lm = df[lm]
         punct_poo = df[poo]
+        punct_ls = df[ls]
         # punct_ts = df[ts]
-        # punct_ls = df[ls]
 
         print("Maximum values: ", df)
 
-        return ResultClassifier(punct_bd, punct_poo, punct_lm, 0, 0)
+        return ResultClassifier(punct_bd, punct_poo, punct_lm, punct_ls, 0)
 
