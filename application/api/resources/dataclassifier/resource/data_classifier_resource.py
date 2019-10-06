@@ -10,7 +10,6 @@ result_get = api.model('ClassifierResult Get', {
     'bancoDadosRanking': fields.Float,
     'programacaoOrientadaObjetoRanking': fields.Float,
     'linguagemMarcacaoRanking': fields.Float,
-    'testeSoftwareRanking': fields.Float,
     'linguagemScriptRanking': fields.Float
 })
 
@@ -41,7 +40,6 @@ class DataClassifierResource(Resource):
         poo = "programacao orientada a objeto"
         lm = "linguagem de marcacao"
         ls = "linguagem de script"
-        # ts = "teste de software"
 
         df = dataframe.max()
         punct_bd = df[bd]
@@ -52,5 +50,5 @@ class DataClassifierResource(Resource):
 
         print("Maximum values: ", df)
 
-        return ResultClassifier(punct_bd, punct_poo, punct_lm, punct_ls, 0)
+        return ResultClassifier(punct_bd, punct_poo, punct_lm, punct_ls)
 

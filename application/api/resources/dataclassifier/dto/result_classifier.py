@@ -1,10 +1,9 @@
 class ResultClassifier:
 
-    def __init__(self, bancoDadosRanking, programacaoOrientadaObjetoRanking, linguagemMarcacaoRanking, testeSoftwareRanking, linguagemScriptRanking):
+    def __init__(self, bancoDadosRanking, programacaoOrientadaObjetoRanking, linguagemMarcacaoRanking, linguagemScriptRanking):
         self.bancoDadosRanking = bancoDadosRanking
         self.programacaoOrientadaObjetoRanking = programacaoOrientadaObjetoRanking
         self.linguagemMarcacaoRanking = linguagemMarcacaoRanking
-        self.testeSoftwareRanking = testeSoftwareRanking
         self.linguagemScriptRanking = linguagemScriptRanking
 
     def getBancoDadosRanking(self):
@@ -24,12 +23,6 @@ class ResultClassifier:
 
     def setLinguagemMarcacaoRanking(self, lmRanking):
         self.linguagemMarcacaoRanking = lmRanking
-
-    def getTesteSoftwareRanking(self):
-        return self.testeSoftwareRanking
-
-    def setTesteSoftwareRanking(self, tsRanking):
-        self.testeSoftwareRanking = tsRanking
 
     def getLinguagemScriptRanking(self):
         return self.linguagemScriptRanking
